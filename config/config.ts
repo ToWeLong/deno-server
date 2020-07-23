@@ -6,7 +6,7 @@ const config:configs  = {
         host:'localhost',
         port:3306,
         user:'root',
-        password:'password'
+        password:'123456789'
     },
     security:{
         secretKey:"md5afwe",

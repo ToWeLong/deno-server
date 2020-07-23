@@ -2,9 +2,8 @@
   "$schema": "https://deno.land/x/denon/schema.json",
   "scripts": {
     "start": {
-      "cmd": "deno run app.ts",
+      "cmd": "deno run -A app.ts",
       "desc": "run my app.ts file",
-      "allow": ["run", "write", "net", "read"],
       "inspect": "127.0.0.1:9229",
       "importmap": "importmap.json",
       "unstable": true

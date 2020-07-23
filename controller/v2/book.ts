@@ -42,4 +42,20 @@ router.get("/:id", (ctx: RouterContext) => {
   };
 });
 
+router.post('/',async ctx=>{
+  const v = await new Validator().validate(ctx);
+  ctx.response.body = {
+    id:v.get('body.bookId'),
+    name:v.get("body.bookName")
+  }
+})
+
+router.put('/',async ctx=>{
+  const v = await new Validator().validate(ctx);
+  ctx.response.body = {
+    id:v.get('body.bookId'),
+    name:v.get("body.bookName")
+  }
+})
+
 export default router;

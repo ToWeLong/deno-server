@@ -9,14 +9,14 @@
 interface mysql{
     dbName:string,
     host:string,
-    port:Number,
+    port:number,
     user:string,
     password:string
 }
 
 interface security{
     secretKey:string,
-    expiresIn:Number
+    expiresIn:number
 }
 
 interface configs{
