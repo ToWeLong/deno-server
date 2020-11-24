@@ -1,10 +1,9 @@
-import { RouterContext } from "oak";
+import { Context } from "oak"
 
-const json = async (ctx: RouterContext, next: Function) => {
+const json = async (ctx: Context, next: Function) => {
+    ctx.state.json = ctx.response.body
+    // ctx.json = ctx.state.json
+    await next()
+}
 
-//   ctx.json = ctx.response.body
-  await next();
-  
-};
-
-export default json;
+export default json

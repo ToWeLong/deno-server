@@ -1,33 +1,41 @@
 {
-  // 使用 IntelliSense 了解相关属性。
-  // 悬停以查看现有属性的描述。
-  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "denon",
-      "runtimeExecutable": "denon",
-      "runtimeArgs": ["start"],
-      "port": 9229,
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "Deno (Attach)",
-      "type": "node",
-      "request": "attach",
-      "port": 9229
-    },
-    {
-      "name": "Deno-debugger",
-      "type": "pwa-node",
-      "request": "launch",
-      "cwd": "${workspaceFolder}",
-      "runtimeExecutable": "deno",
-      "runtimeArgs": ["run", "--inspect", "-A", "--unstable", "app.ts"],
-      "attachSimplePort": 9229,
-      "console": "integratedTerminal"
-    }
-  ]
+    // 使用 IntelliSense 了解相关属性。
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "denon",
+            "runtimeExecutable": "denon",
+            "runtimeArgs": ["start"],
+            "attachSimplePort": 9229,
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Deno (Attach)",
+            "type": "node",
+            "request": "attach",
+            "port": 9229
+        },
+        {
+            "name": "Deno-debugger",
+            "type": "pwa-node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "deno",
+            "runtimeArgs": [
+                "run",
+                "--inspect-brk",
+                "-A",
+                "--unstable",
+                "--importmap",
+                "importmap.json",
+                "app.ts"
+            ],
+            "attachSimplePort": 9229,
+            "console": "integratedTerminal"
+        },
+    ]
 }

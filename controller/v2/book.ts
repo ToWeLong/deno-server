@@ -1,4 +1,4 @@
-import { Router, RouterContext } from "oak";
+import { Router, RouterContext,Context } from "oak";
 import Validator from "../../core/validator.ts";
 import { NotFound } from "../../core/HttpException.ts";
 
@@ -7,16 +7,22 @@ const router = new Router({
 });
 
 router.get("/", (ctx: RouterContext) => {
-
   const h:string = "hello2"
   const h1:string = ",world!!!"
-  ctx.response.body = {
-    ctx: h+h1,
-  };
+
+  ctx.state.json = {
+    success:"true"
+  }
+
+  console.log(ctx.state.json);
+  
 });
 
 router.get("/hello", (ctx: RouterContext) => {
-  throw new NotFound()
+  // throw new NotFound()
+  ctx.response.body = {
+    ctx: ctx.state.json.success,
+  };
 });
 
 router.get("/:id/search", async (ctx: RouterContext) => {
